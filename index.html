@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruma & Esencia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Bruma & Esencia</h1>
+
+        <nav>
+            <ul class="header__nav-list">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#catalogo">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li>
+                    <button class="botonCarrito" id="botonCarrito" type="button">
+                        🛒 Carrito
+                        <span id="cantidadCarrito">0</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero__contenido">
+            <p class="subtitulo">FRAGANCIAS DE AMBIENTE</p>
+
+            <h2>
+                Cada espacio <br>
+                <span>merece</span> su <br>
+                aroma propio
+            </h2>
+
+            <p class="descripcion">
+                Descubrí una colección de perfumes de ambiente,
+                textiles y difusores creados para transformar
+                cada rincón de tu hogar.
+            </p>
+
+            <a href="#catalogo" class="boton">Ver colección</a>
+        </div>
+    </section>
+
+    <section id="catalogo">
+        <h2 class="tituloCatalogo">Nuestra colección</h2>
+
+        <div class="controlesCatalogo">
+            <input
+                type="text"
+                id="buscador"
+                placeholder="Buscar producto..."
+                autocomplete="off"
+            >
+
+            <select id="filtroPrecio">
+                <option value="todos">Todos los precios</option>
+                <option value="5000">Hasta $5.000</option>
+                <option value="6500">Hasta $6.500</option>
+            </select>
+        </div>
+
+        <div class="contenedor__catalogo" id="catalogoProductos"></div>
+
+        <p id="sinResultados" class="sinResultados">
+            No encontramos productos con esa búsqueda.
+        </p>
+    </section>
+
+    <section id="nosotros" class="seccionNosotros">
+        <div>
+            <p class="subtituloOscuro">BRUMA & ESENCIA</p>
+            <h2>Un aroma también puede transformar un momento.</h2>
+            <p>
+                Creamos productos pensados para darle personalidad y
+                calidez a cada espacio de tu hogar.
+            </p>
+        </div>
+    </section>
+
+    <!-- Modal del producto -->
+    <div id="Card" class="Card">
+        <div class="cardContenido">
+            <button class="cerrar" id="cerrarCard" type="button">&times;</button>
+
+            <h2 id="nombreProducto"></h2>
+            <p id="precioProducto"></p>
+
+            <h3>Elegí un aroma</h3>
+            <select id="selectorOlores"></select>
+
+            <div class="cantidadProducto">
+                <button id="menosCantidad" type="button">−</button>
+                <span id="cantidadProducto">1</span>
+                <button id="masCantidad" type="button">+</button>
+            </div>
+
+            <button class="btnCarrito" id="btnAgregarCarrito" type="button">
+                Agregar al carrito
+            </button>
+        </div>
+    </div>
+
+    <!-- Carrito lateral -->
+    <div id="fondoCarrito" class="fondoCarrito">
+        <aside class="carrito">
+            <div class="carritoEncabezado">
+                <h2>Mi carrito</h2>
+                <button id="cerrarCarrito" type="button">&times;</button>
+            </div>
+
+            <div id="listaCarrito" class="listaCarrito"></div>
+
+            <div class="carritoVacio" id="carritoVacio">
+                <p>Tu carrito está vacío.</p>
+                <span>Agregá algún producto para comenzar.</span>
+            </div>
+
+            <div class="carritoPie">
+                <div class="total">
+                    <span>Total</span>
+                    <strong id="totalCarrito">$0</strong>
+                </div>
+
+                <button id="vaciarCarrito" class="btnSecundario" type="button">
+                    Vaciar carrito
+                </button>
+
+                <button id="finalizarCompra" class="btnComprar" type="button">
+                    Finalizar compra
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <div id="mensaje" class="mensaje"></div>
+
+    <footer>
+        © 2026 Bruma & Esencia - Todos los derechos reservados.
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
