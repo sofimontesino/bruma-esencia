@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --espresso: #4A2C2A;
+    --cream: #F3E6D4;
+    --caramel: #C78C55;
+    --mocha: #8B5E3C;
+    --latte: #D5BBA6;
+    --amber: #DFAE52;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: #333;
+}
+
+/* ---------- HEADER (igual al del sitio principal) ---------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 70px;
+    background: rgba(18, 18, 18, .55);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.header__nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.header__nav-list a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.header__nav-list a:hover {
+    color: var(--amber);
+}
+
+/* ---------- CONTENEDOR (fondo oscuro tipo hero) ---------- */
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 150px 40px 80px;
+    background-color: var(--espresso);
+    background-image:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.35)),
+        url("imagenes/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ---------- TARJETAS ---------- */
+.card {
+    width: 420px;
+    max-width: 100%;
+    background: white;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(0,0,0,.3);
+    animation: aparecer .4s;
+}
+
+.subtituloOscuro {
+    text-align: center;
+    color: var(--caramel);
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.card h2 {
+    text-align: center;
+    color: var(--espresso);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin: 6px 0 22px;
+}
+
+.foto-perfil {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 3px solid var(--caramel);
+    background: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.bienvenida {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+/* ---------- FORMULARIOS ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: var(--espresso);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 12px 0 6px 6px;
+}
+
+input {
+    width: 100%;
+    padding: 13px 18px;
+    border: 1px solid var(--latte);
+    border-radius: 25px;
+    background: white;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    transition: .3s;
+}
+
+input:focus {
+    border-color: var(--caramel);
+    box-shadow: 0 0 0 3px rgba(199, 140, 85, .2);
+}
+
+button {
+    margin-top: 26px;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    background: var(--amber);
+    color: #111;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #f2c46d;
+    transform: translateY(-4px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ---------- ENLACES ---------- */
+.olvido,
+.registro {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #777;
+}
+
+.olvido a,
+.registro a {
+    color: var(--mocha);
+    text-decoration: none;
+    transition: .3s;
+}
+
+.registro a {
+    font-weight: 600;
+}
+
+.olvido a:hover,
+.registro a:hover {
+    color: var(--amber);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    background: var(--espresso);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+@keyframes aparecer {
+    from {
+        transform: scale(.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .header__nav-list {
+        margin-top: 15px;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contenedor {
+        padding-top: 190px;
+    }
+}
+
+@media (max-width: 650px) {
+    .contenedor {
+        padding: 190px 20px 60px;
+    }
+
+    .card {
+        padding: 30px 22px;
+    }
+
+    .card h2 {
+        font-size: 2rem;
+    }
+}

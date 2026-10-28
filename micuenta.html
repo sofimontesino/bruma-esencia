@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta | Bruma & Esencia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,500&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="micuenta.css">
+</head>
+<body>
+
+<header>
+    <h1>Bruma & Esencia</h1>
+    <nav>
+        <ul class="header__nav-list">
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="mi-cuenta.html">MI CUENTA</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="contenedor">
+
+    <!-- FORMULARIO LOGIN -->
+    <section class="card">
+        <p class="subtituloOscuro">BIENVENIDO</p>
+        <h2>Iniciar Sesión</h2>
+
+        <div class="foto-perfil">👤</div>
+
+        <p class="bienvenida">Accede a tu cuenta para realizar pedidos y consultar tus compras.</p>
+
+        <form id="form-login">
+            <label for="login-email">Correo Electrónico</label>
+            <input type="email" id="login-email" placeholder="Ingrese su correo" required>
+
+            <label for="login-pass">Contraseña</label>
+            <input type="password" id="login-pass" placeholder="Ingrese su contraseña" required>
+
+            <button type="submit" id="btn-login">Ingresar</button>
+        </form>
+
+        <p class="olvido">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+        </p>
+
+        <p class="registro">
+            ¿No tienes cuenta? <a href="#registro">Registrarse</a>
+        </p>
+    </section>
+
+    <!-- FORMULARIO REGISTRO -->
+    <section class="card" id="registro">
+        <p class="subtituloOscuro">ÚNETE</p>
+        <h2>Crear Cuenta</h2>
+
+        <p class="bienvenida">Regístrate para disfrutar de nuestras fragancias y promociones.</p>
+
+        <form id="form-registro">
+            <label for="reg-nombre">Nombre Completo</label>
+            <input type="text" id="reg-nombre" placeholder="Ingrese su nombre" required>
+
+            <label for="reg-email">Correo Electrónico</label>
+            <input type="email" id="reg-email" placeholder="Ingrese su correo" required>
+
+            <label for="reg-pass">Contraseña</label>
+            <input type="password" id="reg-pass" placeholder="Ingrese su contraseña" required>
+
+            <label for="reg-confirm-pass">Confirmar Contraseña</label>
+            <input type="password" id="reg-confirm-pass" placeholder="Repita su contraseña" required>
+
+            <button type="submit" id="btn-registro">Registrarme</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Bruma & Esencia - Todos los derechos reservados.</p>
+</footer>
+
+<script src="micuenta.js"></script>
+</body>
+</html>
