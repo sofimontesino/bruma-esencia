@@ -1,6 +1,3 @@
-// -----------------------------
-// PRODUCTOS
-// -----------------------------
 
 const productos = [
     {
@@ -67,17 +64,11 @@ const productos = [
     }
 ];
 
-// -----------------------------
-// VARIABLES
-// -----------------------------
 
 let carrito = JSON.parse(localStorage.getItem("carritoBruma")) || [];
 let productoActual = null;
 let cantidadActual = 1;
 
-// -----------------------------
-// ELEMENTOS
-// -----------------------------
 
 const catalogo = document.getElementById("catalogoProductos");
 const buscador = document.getElementById("buscador");
@@ -95,10 +86,6 @@ const listaCarrito = document.getElementById("listaCarrito");
 const carritoVacio = document.getElementById("carritoVacio");
 const totalCarrito = document.getElementById("totalCarrito");
 const cantidadCarrito = document.getElementById("cantidadCarrito");
-
-// -----------------------------
-// MOSTRAR PRODUCTOS
-// -----------------------------
 
 function mostrarProductos() {
     const texto = buscador.value.toLowerCase();
@@ -142,9 +129,6 @@ function mostrarProductos() {
     });
 }
 
-// -----------------------------
-// MODAL PRODUCTO
-// -----------------------------
 
 function abrirCard(id) {
     productoActual = productos.find(function(producto) {
@@ -177,9 +161,6 @@ function cerrarCard() {
     document.body.classList.remove("bloqueado");
 }
 
-// -----------------------------
-// CANTIDAD
-// -----------------------------
 
 function actualizarCantidad() {
     cantidadProducto.textContent = cantidadActual;
@@ -197,9 +178,6 @@ document.getElementById("menosCantidad").addEventListener("click", function() {
     }
 });
 
-// -----------------------------
-// AGREGAR AL CARRITO
-// -----------------------------
 
 function agregarCarrito() {
     const olorElegido = selectorOlores.value;
@@ -229,10 +207,6 @@ function agregarCarrito() {
     );
 }
 
-// -----------------------------
-// CARRITO
-// -----------------------------
-
 function mostrarCarrito() {
     listaCarrito.innerHTML = "";
 
@@ -245,7 +219,6 @@ function mostrarCarrito() {
 
         const elemento = document.createElement("div");
         elemento.className = "itemCarrito";
-
         elemento.innerHTML = `
             <div class="itemInfo">
                 <div>
@@ -258,7 +231,6 @@ function mostrarCarrito() {
                     ${formatearPrecio(item.precio * item.cantidad)}
                 </span>
             </div>
-
             <div class="itemAcciones">
                 <button type="button" data-accion="menos">−</button>
                 <span>${item.cantidad}</span>
@@ -268,31 +240,26 @@ function mostrarCarrito() {
                 </button>
             </div>
         `;
-
         elemento.querySelector('[data-accion="menos"]').addEventListener(
             "click",
             function() {
                 cambiarCantidad(indice, -1);
             }
         );
-
         elemento.querySelector('[data-accion="mas"]').addEventListener(
             "click",
             function() {
                 cambiarCantidad(indice, 1);
             }
         );
-
         elemento.querySelector('[data-accion="eliminar"]').addEventListener(
             "click",
             function() {
                 eliminarProducto(indice);
             }
         );
-
         listaCarrito.appendChild(elemento);
     });
-
     cantidadCarrito.textContent = cantidadTotal;
     totalCarrito.textContent = formatearPrecio(total);
 
@@ -302,7 +269,6 @@ function mostrarCarrito() {
         carritoVacio.style.display = "none";
     }
 }
-
 function cambiarCantidad(indice, cambio) {
     carrito[indice].cantidad += cambio;
 
@@ -313,7 +279,6 @@ function cambiarCantidad(indice, cambio) {
     guardarCarrito();
     mostrarCarrito();
 }
-
 function eliminarProducto(indice) {
     carrito.splice(indice, 1);
 
@@ -337,10 +302,6 @@ function vaciarCarrito() {
     mostrarMensaje("Carrito vacío");
 }
 
-// -----------------------------
-// FINALIZAR COMPRA
-// -----------------------------
-
 function finalizarCompra() {
     if (carrito.length === 0) {
         mostrarMensaje("Agregá productos antes de finalizar");
@@ -359,8 +320,7 @@ function finalizarCompra() {
 
     mensaje += "%0ATotal: " + totalCarrito.textContent;
 
-    // Reemplazá el número por el WhatsApp real de Bruma & Esencia.
-    const numeroWhatsApp = "5490000000000";
+    const numeroWhatsApp = "2996289455";
 
     window.open(
         "https://wa.me/" + numeroWhatsApp + "?text=" + mensaje,
@@ -368,20 +328,16 @@ function finalizarCompra() {
     );
 }
 
-// -----------------------------
-// LOCAL STORAGE
-// -----------------------------
-
 function guardarCarrito() {
     localStorage.setItem(
         "carritoBruma",
         JSON.stringify(carrito)
     );
 }
+function formatearPrecio(precio) {
+    return "$" + precio.toLocaleString("es-AR");
+}
 
-// -----------------------------
-// MENSAJE
-// -----------------------------
 
 function mostrarMensaje(texto) {
     const mensaje = document.getElementById("mensaje");
@@ -394,17 +350,10 @@ function mostrarMensaje(texto) {
     }, 2200);
 }
 
-// -----------------------------
-// FORMATO DE PRECIO
-// -----------------------------
-
 function formatearPrecio(precio) {
     return "$" + precio.toLocaleString("es-AR");
 }
 
-// -----------------------------
-// EVENTOS
-// -----------------------------
 
 buscador.addEventListener("input", mostrarProductos);
 filtroPrecio.addEventListener("change", mostrarProductos);
@@ -468,10 +417,5 @@ document.addEventListener("keydown", function(evento) {
         document.body.classList.remove("bloqueado");
     }
 });
-
-// -----------------------------
-// INICIO
-// -----------------------------
-
 mostrarProductos();
 mostrarCarrito();
